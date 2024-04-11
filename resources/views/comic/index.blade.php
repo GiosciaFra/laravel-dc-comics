@@ -11,7 +11,6 @@
         <thead>
           <tr>
             <th scope="col">Nome</th>
-            <th scope="col">First</th>
           </tr>
         </thead>
         <tbody>
@@ -19,7 +18,7 @@
            
             <tr>
                 <td>{{$comic->title}}</td>
-                <td><a href="">Scopri di più</a></td>
+                <td><a href="{{route('comics.show', $comic->id)}}">Scopri di più</a></td>
             </tr>
         
         @endforeach 
