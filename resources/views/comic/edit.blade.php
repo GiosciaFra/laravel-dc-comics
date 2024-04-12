@@ -8,7 +8,6 @@
         @csrf
         @method('PUT')
 
-
         <div>
           <label for="title" class="form-label">Titolo</label>
           <input type="text" class="form-control" id="title" name="title" value='{{$comic->title}}' required>
@@ -54,15 +53,11 @@
             <textarea type="text" class="form-control" id="writers" name="writers" placeholder='Nome e Cognome' required>{{$comic->writers}}</textarea>
         </div>
 
-        <div class="d-flex gap-5 justify-content-center  ">
+        <div class="d-flex justify-content-center gap-4">
 
-            <button type="submit" class="btn btn-warning mt-4 text-white ">Salva la tua modifica</button>
-            
-            
-            
+            <button type="submit" class="btn btn-warning text-white ">Salva la tua modifica</button>          
+            <a href="{{route('comics.index')}}" class="btn btn-success ">Torna alla lista dei fumetti</a>
         </div>
-        
     </form>
-    <a href="{{route('comics.index')}}" class="btn btn-success">Torna alla lista dei fumetti</a>
 </div>
 @endsection

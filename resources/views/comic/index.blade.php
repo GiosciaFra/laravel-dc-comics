@@ -10,7 +10,8 @@
     <table class="table">
         <thead>
           <tr>
-            <th scope="col">Nome</th>
+            <th>Nome</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -18,7 +19,7 @@
            
             <tr>
                 <td>{{$comic->title}}</td>
-                <td><a href="{{route('comics.show', $comic->id)}}">Scopri di più</a></td>
+                <td><a href="{{route('comics.show', $comic->id)}}" class="btn btn-outline-info text-white ">Scopri di più</a></td>
             </tr>
         
         @endforeach 
@@ -27,6 +28,6 @@
 
 
 
-      <a href="{{route('comics.create')}}" class="btn btn-primary">Aggiungi un fumetto!</a>
+      <a href="{{route('comics.create')}}" class="btn btn-primary mt-3 d">Aggiungi un fumetto!</a>
 </div>
 @endsection

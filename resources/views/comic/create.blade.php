@@ -53,10 +53,13 @@
             <textarea type="text" class="form-control" id="writers" name="writers" placeholder='Nome e Cognome' required></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary mt-4 w-25 ">Aggiungi</button>
+        <div class="d-flex justify-content-center gap-4 mt-4">
+
+            <button type="submit" class="btn btn-primary">Aggiungi</button>
+            <a href="{{route('comics.index')}}" class="btn btn-success">Torna alla lista dei fumetti</a>
+        </div>
     </form>
 
-    <a href="{{route('comics.index')}}" class="btn btn-success mt-4">Torna alla lista dei fumetti</a>
 
 </div>
     
