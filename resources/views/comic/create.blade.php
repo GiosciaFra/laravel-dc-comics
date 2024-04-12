@@ -55,6 +55,9 @@
 
         <button type="submit" class="btn btn-primary mt-4 w-25 ">Aggiungi</button>
     </form>
+
+    <a href="{{route('comics.index')}}" class="btn btn-success mt-4">Torna alla lista dei fumetti</a>
+
 </div>
     
 @endsection
