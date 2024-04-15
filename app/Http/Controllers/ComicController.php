@@ -124,6 +124,7 @@ class ComicController extends Controller
         ], [
             'title.required' => 'Il titolo deve essere inserito',
             'title.max' => 'Puoi inserire massimo :max caratteri',
+            'thumb.max' => "L'src può avere massimo :max caratteri",
             'description.required' => 'La descrizione deve essere inserita',
             'description.max' => 'Puoi inserire massimo :max caratteri',
             'price.required' => 'Il prezzo deve essere inserito',
