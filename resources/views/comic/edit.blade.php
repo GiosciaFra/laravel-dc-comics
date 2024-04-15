@@ -10,12 +10,12 @@
 
         <div>
           <label for="title" class="form-label">Titolo</label>
-          <input type="text" class="form-control" id="title" name="title" value='{{$comic->title}}' required>
+          <input type="text" class="form-control" id="title" name="title" value='{{$comic->title}}'>
         </div>
 
         <div>
             <label for="description" class="form-label">Descrizione</label>
-            <textarea type="textarea" class="form-control" id="description" name="description" required> {{$comic->title}}</textarea>
+            <textarea type="textarea" class="form-control" id="description" name="description"> {{$comic->title}}</textarea>
         </div>
 
         <div>
@@ -25,17 +25,17 @@
 
         <div>
             <label for="price" class="form-label">Prezzo ($)</label>
-            <input type="text" class="form-control" id="price" name="price" value='{{$comic->price}}' required>
+            <input type="text" class="form-control" id="price" name="price" value='{{$comic->price}}'>
         </div>
 
         <div>
             <label for="series" class="form-label">Serie</label>
-            <input type="text" class="form-control" id="series" name="series" value='{{$comic->series}}' required>
+            <input type="text" class="form-control" id="series" name="series" value='{{$comic->series}}'>
         </div>
 
         <div>
             <label for="sale_date" class="form-label">Data di pubblicazione</label>
-            <input type="date" class="form-control" id="sale_date" name="sale_date" placeholder='YY-MM-DD' value='{{$comic->sale_date}}' required>
+            <input type="date" class="form-control" id="sale_date" name="sale_date" placeholder='YY-MM-DD' value='{{$comic->sale_date}}'>
         </div>
 
         <div>
@@ -45,13 +45,23 @@
 
         <div>
             <label for="artists" class="form-label">Artistə (Disegnatorə)</label>
-            <textarea type="text" class="form-control" id="artists" name="artists" placeholder='Nome e Cognome' required>{{$comic->artists}}</textarea>
+            <textarea type="text" class="form-control" id="artists" name="artists" placeholder='Nome e Cognome'>{{$comic->artists}}</textarea>
         </div>
 
         <div>
             <label for="writers" class="form-label">Scrittorə</label>
-            <textarea type="text" class="form-control" id="writers" name="writers" placeholder='Nome e Cognome' required>{{$comic->writers}}</textarea>
+            <textarea type="text" class="form-control" id="writers" name="writers" placeholder='Nome e Cognome'>{{$comic->writers}}</textarea>
         </div>
+
+        @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
 
         <div class="d-flex justify-content-center gap-4">
 

@@ -15,7 +15,7 @@
 
         <div>
             <label for="description" class="form-label">Descrizione</label>
-            <textarea type="textarea" class="form-control" id="description" name="description" value="{{old('description')}}" ></textarea>
+            <textarea type="textarea" class="form-control" id="description" name="description">{{old('description')}}</textarea>
         </div>
 
         <div>
@@ -45,12 +45,12 @@
 
         <div>
             <label for="artists" class="form-label">Artistə (Disegnatorə)</label>
-            <textarea type="text" class="form-control" id="artists" name="artists" placeholder='Nome e Cognome' value="{{old('artists')}}" ></textarea>
+            <textarea type="text" class="form-control" id="artists" name="artists" placeholder='Nome e Cognome' >{{old('artists')}}</textarea>
         </div>
 
         <div>
             <label for="writers" class="form-label">Scrittorə</label>
-            <textarea type="text" class="form-control" id="writers" name="writers" placeholder='Nome e Cognome' value="{{old('writers')}}" ></textarea>
+            <textarea type="text" class="form-control" id="writers" name="writers" placeholder='Nome e Cognome' >{{old('writers')}}</textarea>
         </div>
 
 
