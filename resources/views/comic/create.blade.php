@@ -10,12 +10,12 @@
 
         <div>
           <label for="title" class="form-label">Titolo</label>
-          <input type="text" class="form-control" id="title" name="title" required>
+          <input type="text" class="form-control" id="title" name="title" value="{{old('title')}}" >
         </div>
 
         <div>
             <label for="description" class="form-label">Descrizione</label>
-            <textarea type="textarea" class="form-control" id="description" name="description" required></textarea>
+            <textarea type="textarea" class="form-control" id="description" name="description" value="{{old('description')}}" ></textarea>
         </div>
 
         <div>
@@ -25,39 +25,50 @@
 
         <div>
             <label for="price" class="form-label">Prezzo ($)</label>
-            <input type="text" class="form-control" id="price" name="price" required>
+            <input type="text" class="form-control" id="price" name="price" value="{{old('price')}}" >
         </div>
 
         <div>
             <label for="series" class="form-label">Serie</label>
-            <input type="text" class="form-control" id="series" name="series" required>
+            <input type="text" class="form-control" id="series" name="series" value="{{old('series')}}" >
         </div>
 
         <div>
             <label for="sale_date" class="form-label">Data di pubblicazione</label>
-            <input type="date" class="form-control" id="sale_date" name="sale_date" placeholder='YY-MM-DD' required>
+            <input type="date" class="form-control" id="sale_date" name="sale_date" placeholder='YY-MM-DD' value="{{old('sale_date')}}" >
         </div>
 
         <div>
             <label for="type" class="form-label">Tipo di fumetto</label>
-            <input type="text" class="form-control" id="type" name="type" required>
+            <input type="text" class="form-control" id="type" name="type" value="{{old('type')}}" >
         </div>
 
         <div>
             <label for="artists" class="form-label">Artistə (Disegnatorə)</label>
-            <textarea type="text" class="form-control" id="artists" name="artists" placeholder='Nome e Cognome' required></textarea>
+            <textarea type="text" class="form-control" id="artists" name="artists" placeholder='Nome e Cognome' value="{{old('artists')}}" ></textarea>
         </div>
 
         <div>
             <label for="writers" class="form-label">Scrittorə</label>
-            <textarea type="text" class="form-control" id="writers" name="writers" placeholder='Nome e Cognome' required></textarea>
+            <textarea type="text" class="form-control" id="writers" name="writers" placeholder='Nome e Cognome' value="{{old('writers')}}" ></textarea>
         </div>
 
+
+        @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <div class="d-flex justify-content-center gap-4 mt-4">
 
             <button type="submit" class="btn btn-primary">Aggiungi</button>
             <a href="{{route('comics.index')}}" class="btn btn-success">Torna alla lista dei fumetti</a>
         </div>
+
     </form>
 
 
