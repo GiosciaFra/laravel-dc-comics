@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreComicRequest;
 use App\Models\Comic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -30,10 +31,11 @@ class ComicController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreComicRequest $request)
     {
-        $this->validation($request->all());
+        // $this->validation($request->all());
 
+        $request->validated();
 
         // dd($request);
 
@@ -77,9 +79,11 @@ class ComicController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Comic $comic)
+    public function update(StoreComicRequest $request, Comic $comic)
     {
-        $this->validation($request->all());
+        // $this->validation($request->all());
+
+        $request->validated();
 
         $comic->title = $request->title;
         $comic->description = $request->description;
@@ -104,41 +108,5 @@ class ComicController extends Controller
         $comic->delete();
 
         return redirect()->route('comics.index');
-    }
-
-
-    public function validation($data)
-    {
-        $validator = Validator::make($data, [
-
-            'title' => 'required|max:255',
-            'description' => 'required|max:5000',
-            'thumb' => 'nullable|max:1000',
-            'price' => 'required|max:255',
-            'series' => 'required|max:255',
-            'sale_date' => 'required|max:10',
-            'type' => 'required|max:255',
-            'artists' => 'required|max:700',
-            'writers' => 'required|max:700'
-
-        ], [
-            'title.required' => 'Il titolo deve essere inserito',
-            'title.max' => 'Puoi inserire massimo :max caratteri',
-            'thumb.max' => "L'src può avere massimo :max caratteri",
-            'description.required' => 'La descrizione deve essere inserita',
-            'description.max' => 'Puoi inserire massimo :max caratteri',
-            'price.required' => 'Il prezzo deve essere inserito',
-            'price.max' => 'Puoi inserire massimo :max caratteri',
-            'series.required' => 'La serie deve essere inserito',
-            'series.max' => 'Puoi inserire massimo :max caratteri',
-            'sale_date.required' => 'La data di pubblicazione deve essere inserita',
-            'sale_date.max' => 'Puoi inserire massimo :max caratteri',
-            'type.required' => 'La tipologia del fumetto deve essere inserita',
-            'type.max' => 'Puoi inserire massimo :max caratteri',
-            'artists.required' => "L'artista deve essere inserita",
-            'artists.max' => 'Puoi inserire massimo :max caratteri',
-            'writers.required' => 'Lo scrittore deve essere inserito',
-            'writers.max' => 'Puoi inserire massimo :max caratteri'
-        ])->validate();
     }
 }
