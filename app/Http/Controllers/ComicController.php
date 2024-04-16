@@ -16,7 +16,6 @@ class ComicController extends Controller
     {
         $comics = Comic::all();
 
-        // dd($comics);
         return view("comic/index", compact("comics"));
     }
 
@@ -33,23 +32,11 @@ class ComicController extends Controller
      */
     public function store(StoreComicRequest $request)
     {
-        // $this->validation($request->all());
-
         $request->validated();
-
-        // dd($request);
 
         $newComic = new Comic();
 
-        $newComic->title = $request->title;
-        $newComic->description = $request->description;
-        $newComic->thumb = $request->thumb;
-        $newComic->price = $request->price;
-        $newComic->series = $request->series;
-        $newComic->sale_date = $request->sale_date;
-        $newComic->type = $request->type;
-        $newComic->artists = $request->artists;
-        $newComic->writers = $request->writers;
+        $newComic->fill($request->all());
 
         $newComic->save();
 
@@ -61,8 +48,7 @@ class ComicController extends Controller
      */
     public function show(Comic $comic)
     {
-        // $comic = Comic::find($id);
-        // dd($comic);
+
         return view("comic.show", compact('comic'));
     }
 
@@ -81,19 +67,11 @@ class ComicController extends Controller
      */
     public function update(StoreComicRequest $request, Comic $comic)
     {
-        // $this->validation($request->all());
+
 
         $request->validated();
 
-        $comic->title = $request->title;
-        $comic->description = $request->description;
-        $comic->thumb = $request->thumb;
-        $comic->price = $request->price;
-        $comic->series = $request->series;
-        $comic->sale_date = $request->sale_date;
-        $comic->type = $request->type;
-        $comic->artists = $request->artists;
-        $comic->writers = $request->writers;
+        $comic->fill($request->all());
 
         $comic->save();
 
